@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FlickrViewer</string>
+    <string name="flickr_photo">Flickr Photo</string>
+</resources>

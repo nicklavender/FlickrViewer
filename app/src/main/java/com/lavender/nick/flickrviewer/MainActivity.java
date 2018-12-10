@@ -54,8 +54,8 @@ public class MainActivity extends FragmentActivity {
                         flickrPhotos.add(appFlickrPhoto);
                     }
                     mPagerAdapter = new FlickrPhotoPagerAdapter(getSupportFragmentManager());
-                    mPager.setAdapter(mPagerAdapter);
                     mPagerAdapter.setPhotos(flickrPhotos);
+                    mPager.setAdapter(mPagerAdapter);
                     Log.d(TAG, "Flickr feed retrieved, count: " + flickrPhotos.size());
                 } else {
                     Log.d(TAG, "Null response");

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "619331461855",
+    "firebase_url": "https://flickrfirebase.firebaseio.com",
+    "project_id": "flickrfirebase",
+    "storage_bucket": "flickrfirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:619331461855:android:71949c0506b77ae7",
+        "android_client_info": {
+          "package_name": "com.lavender.nick.flickrviewer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "619331461855-b2sqs3q9i7u4k1tdoedlqs7lj37ukvcn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGAXUzCe2qPyHCP1m3m2vs_IROEf3R5Go"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "619331461855-b2sqs3q9i7u4k1tdoedlqs7lj37ukvcn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

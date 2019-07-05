@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="entries">
+		<item>Zoom Out</item>
+		<item>Depth</item>
+	</string-array>
+
+	<integer-array name="entry_values">
+		<item>0</item>
+		<item>1</item>
+	</integer-array>
+</resources>

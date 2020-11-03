@@ -8,7 +8,11 @@ public class DepthPageTransformer implements ViewPager.PageTransformer {
 
 	private static final float MIN_SCALE = 0.75f;
 
+	private boolean rotationEnabled;
 
+	public DepthPageTransformer(boolean rotationEnabled) {
+		this.rotationEnabled = rotationEnabled;
+	}
 
 	public void transformPage (View view, float position) {
 		int pageWidth = view.getWidth();
@@ -36,6 +40,10 @@ public class DepthPageTransformer implements ViewPager.PageTransformer {
 					+ (1 - MIN_SCALE) * (1 - Math.abs(position));
 			view.setScaleX(scaleFactor);
 			view.setScaleY(scaleFactor);
+
+			if(rotationEnabled) {
+				view.setRotation(position * 360 * 1);
+			}
 
 		} else { // (1,+Infinity]
 			// This page is way off-screen to the right.

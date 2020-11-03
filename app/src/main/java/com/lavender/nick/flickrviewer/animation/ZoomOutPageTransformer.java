@@ -9,6 +9,12 @@ public class ZoomOutPageTransformer implements ViewPager.PageTransformer  {
 	private static final float MIN_SCALE = 0.85f;
 	private static final float MIN_ALPHA = 0.5f;
 
+	private boolean rotationEnabled;
+
+	public ZoomOutPageTransformer(boolean rotationEnabled) {
+		this.rotationEnabled = rotationEnabled;
+	}
+
 	public void transformPage(View view, float position) {
 		int pageWidth = view.getWidth();
 		int pageHeight = view.getHeight();
@@ -31,6 +37,10 @@ public class ZoomOutPageTransformer implements ViewPager.PageTransformer  {
 			// Scale the page down (between MIN_SCALE and 1)
 			view.setScaleX(scaleFactor);
 			view.setScaleY(scaleFactor);
+
+			if(rotationEnabled) {
+				view.setRotation(position * 360 * 1);
+			}
 
 			// Fade the page relative to its size.
 			view.setAlpha(MIN_ALPHA +

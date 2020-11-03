@@ -5,11 +5,6 @@
 	<PreferenceCategory
 		app:title="UI Settings">
 
-	<Preference
-		app:key="animations"
-		app:title="Transition animations"
-		app:summary="Transitions when moving between images"/>
-
 		<ListPreference
 			app:key="animation_styles"
 			app:title="Animation Style"
@@ -17,6 +12,17 @@
 			app:entries="@array/entries"
 			app:entryValues="@array/entry_values"
 			app:dialogTitle="Animation Dialog"/>
+
+		<SwitchPreference
+			app:key="rotation_switch"
+			app:summaryOff="No rotation when swiping"
+			app:summaryOn="Rotation when swiping"
+			app:title="Rotation"/>
+
+		<Preference
+			app:key="map_activity"
+			app:title="Map Activity"
+			/>
 
 
 	</PreferenceCategory>

@@ -7,4 +7,6 @@ public class Constants {
 
 	public static final int ANIMATION_ZOOM_OUT = 0;
 	public static final int ANIMATION_DEPTH_PAGE = 1;
+
+	public static final String ROTATION_PREF = "rotationPref";
 }

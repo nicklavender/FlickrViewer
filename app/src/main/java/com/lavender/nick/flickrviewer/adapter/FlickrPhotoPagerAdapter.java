@@ -9,6 +9,8 @@ import com.lavender.nick.flickrviewer.model.AppFlickrPhoto;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -22,6 +24,7 @@ public class FlickrPhotoPagerAdapter extends FragmentStatePagerAdapter {
     @Nullable
     private List<AppFlickrPhoto> mPhotos;
 
+    @Inject
     public FlickrPhotoPagerAdapter(FragmentManager fm) {
         super(fm);
     }
@@ -43,6 +46,14 @@ public class FlickrPhotoPagerAdapter extends FragmentStatePagerAdapter {
         return FlickrViewerConstants.PAGE_SIZE;
     }
 
+    // san >
+
+
+
+    /**
+     * test
+     * @param mPhotos asdad
+     */
     public void setPhotos(List<AppFlickrPhoto> mPhotos) {
         this.mPhotos = mPhotos;
     }

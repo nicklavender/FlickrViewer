@@ -3,4 +3,5 @@
     <string name="flickr_photo">Flickr Photo</string>
 	<string name="menu_license">License</string>
 	<string name="preferences">Preferences</string>
+	<string name="ml_detected_text">ML detected "\n" text:</string>
 </resources>

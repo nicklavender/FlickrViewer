@@ -21,19 +21,24 @@ import com.lavender.nick.flickrviewer.model.AppFlickrPhoto;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
+import dagger.hilt.android.AndroidEntryPoint;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Response;
 
+@AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
 
 	private static final String TAG = MainActivity.class.getSimpleName();
 	private ViewPager mPager;
+	@Inject
 	private FlickrPhotoPagerAdapter mPagerAdapter;
 	private SwipeRefreshLayout mSwipeToFreshLayout;
 	private SharedPreferences sharedPreferences;
@@ -61,11 +66,11 @@ public class MainActivity extends AppCompatActivity {
 	@Override
 	protected void onResume () {
 		super.onResume();
-		int animationStyle = sharedPreferences.getInt(Constants.ANIMATION_PREF, 0);
-		if (animationStyle == (Constants.ANIMATION_ZOOM_OUT)) {
-			mPager.setPageTransformer(true, new ZoomOutPageTransformer());
+		boolean rotation = sharedPreferences.getBoolean(Constants.ROTATION_PREF, false);
+		if (sharedPreferences.getInt(Constants.ANIMATION_PREF, 0) == (Constants.ANIMATION_ZOOM_OUT)) {
+			mPager.setPageTransformer(true, new ZoomOutPageTransformer(rotation));
 		} else {
-			mPager.setPageTransformer(true, new DepthPageTransformer());
+			mPager.setPageTransformer(true, new DepthPageTransformer(rotation));
 		}
 	}
 
@@ -83,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
 	public boolean onOptionsItemSelected (final MenuItem item) {
 		switch (item.getItemId()) {
 			case R.id.preferences_activity:
-				//ToDo preference activity
 				Intent intent = new Intent(this, PreferencesActivity.class);
 				startActivity(intent);
 				break;
@@ -112,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
 						AppFlickrPhoto appFlickrPhoto = new AppFlickrPhoto(feedTitle, feedLink, feedDescription, item);
 						flickrPhotos.add(appFlickrPhoto);
 					}
-					mPagerAdapter = new FlickrPhotoPagerAdapter(getSupportFragmentManager());
+					//mPagerAdapter = new FlickrPhotoPagerAdapter(getSupportFragmentManager());
 					mPagerAdapter.setPhotos(flickrPhotos);
 					mPager.setAdapter(mPagerAdapter);
 					Log.d(TAG, "Flickr feed retrieved, count: " + flickrPhotos.size());
